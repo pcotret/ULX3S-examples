@@ -4,7 +4,7 @@ use IEEE.numeric_std.all;
 
 entity led_blink is
 port(clk_25mhz : in  std_logic;  -- Default clock is 25MHz
-     led0      : out std_logic); -- Blinking LED
+     led       : out std_logic_vector(7 downto 0)); -- Blinking LED
 end entity led_blink;
 
 -- LED blinker at 1Hz
@@ -25,5 +25,5 @@ begin
             end if;
         end if;
     end process blink_at_1hz;
-    led0 <= led0_toggle;
+    led(0) <= led0_toggle;
 end architecture rtl;
